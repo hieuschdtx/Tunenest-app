@@ -16,4 +16,8 @@
     <ProjectReference Include="..\tunenest.Domain\tunenest.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Options\" />
+  </ItemGroup>
+
 </Project>

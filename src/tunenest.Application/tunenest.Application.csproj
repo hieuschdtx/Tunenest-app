@@ -20,4 +20,8 @@
     <ProjectReference Include="..\tunenest.Persistence\tunenest.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Roles\Commands\" />
+  </ItemGroup>
+
 </Project>

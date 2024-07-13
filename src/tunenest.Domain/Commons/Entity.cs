@@ -7,8 +7,6 @@ namespace tunenest.Domain.Commons
     {
         private readonly List<DomainEvent> _domainEvents = new();
         private TEntityId _id;
-        public DateTime? created_at { get; set; }
-        public DateTime? modified_at { get; set; }
 
         protected Entity()
         {
@@ -27,8 +25,6 @@ namespace tunenest.Domain.Commons
 
         [NotMapped]
         public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
-
-        public void CreateModifiedAt() => this.modified_at = DateTime.Now;
 
         public void AddDomainEvent(DomainEvent domainEvent) => _domainEvents.Add(domainEvent);
 

@@ -1,10 +1,11 @@
 using tunenest.Domain.Commons;
+using tunenest.Domain.Commons.Interfaces;
 using tunenest.Domain.Entities.Songs;
 using tunenest.Domain.Entities.Users;
 
 namespace tunenest.Domain.Entities.Albums
 {
-    public class Album : Entity<long>
+    public class Album : Entity<long>, IAuditableEntity
     {
         public Album()
         {
@@ -22,6 +23,8 @@ namespace tunenest.Domain.Entities.Albums
         public string producer { get; set; }
         public bool disable { get; set; }
         public decimal duration { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime? modified_at { get; set; }
 
         public virtual ICollection<AlbumArtist> album_AlbumsArtists { get; set; }
         public virtual ICollection<Song> album_Songs { get; set; }

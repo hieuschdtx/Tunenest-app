@@ -1,4 +1,5 @@
 using System.Data;
+using Dapper;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +10,7 @@ using tunenest.Api.Configurations;
 using tunenest.Api.Middlewares;
 using tunenest.Application.Behaviors;
 using tunenest.Domain.Consts;
+using tunenest.Domain.Helpers;
 using tunenest.Infrastructure.Configurations;
 using tunenest.Infrastructure.Options;
 using tunenest.Persistence.Data;
@@ -48,6 +50,7 @@ namespace tunenest.Api
 
             //DbContext
             services.AddDbContext<TunenestDbContext>(option => { option.UseNpgsql(connectionString); });
+
             services.AddTransient(provider => provider.GetRequiredService<IDbConnection>().BeginTransaction());
             services.AddTransient<IDbConnection>(_ =>
             {
@@ -55,6 +58,7 @@ namespace tunenest.Api
                 connection.Open();
                 return connection;
             });
+            SqlMapper.AddTypeHandler(new DateOnlyHandler());
 
             //AutoMapper
             services.AddAutoMapper(Application.AssemblyReference.assembly);

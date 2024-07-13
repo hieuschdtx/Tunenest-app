@@ -4,6 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using tunenest.Domain.Commons;
 using tunenest.Domain.Commons.Interfaces;
+using tunenest.Domain.Entities;
+using tunenest.Domain.Entities.Administrators;
+using tunenest.Domain.Entities.Albums;
+using tunenest.Domain.Entities.Artists;
+using tunenest.Domain.Entities.Playlists;
+using tunenest.Domain.Entities.Songs;
+using tunenest.Domain.Entities.Users;
+using tunenest.Persistence.Data.EntityConfigurations;
 using tunenest.Persistence.Repository;
 
 namespace tunenest.Persistence.Data
@@ -24,8 +32,27 @@ namespace tunenest.Persistence.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.assembly);
+            modelBuilder.ApplyConfiguration(new AdministratorEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AlbumArtistEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AlbumEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ArtistEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ArtistSongEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new GenresEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PlaylistArtistEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PlaylistEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PlaylistSongEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PlaylistThemeEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SongGenresEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SongEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ThemeEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new UserFollowSongEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new UserFollowAlbumEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new UserFollowArtistEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new UserFollowPlaylistEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AdministratorRefreshTokenEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new UsersRefreshTokenConfiguration());
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -159,5 +186,31 @@ namespace tunenest.Persistence.Data
             //dispose unmanaged resources
             disposed = true;
         }
+
+        #region Generate Dbset
+
+        public virtual DbSet<Administrator> Administrators { get; set; }
+        public virtual DbSet<Album> Albums { get; set; }
+        public virtual DbSet<AlbumArtist> AlbumsArtists { get; set; }
+        public virtual DbSet<Artist> Artists { get; set; }
+        public virtual DbSet<ArtistSong> ArtistsSongs { get; set; }
+        public virtual DbSet<Genres> Genres { get; set; }
+        public virtual DbSet<Playlist> Playlists { get; set; }
+        public virtual DbSet<PlaylistArtist> PlaylistsArtists { get; set; }
+        public virtual DbSet<PlaylistSong> PlaylistsSongs { get; set; }
+        public virtual DbSet<PlaylistTheme> PlaylistsThemes { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Song> Songs { get; set; }
+        public virtual DbSet<SongGenres> SongsGenres { get; set; }
+        public virtual DbSet<Theme> Themes { get; set; }
+        public virtual DbSet<UserFollowSong> UserFollowSongs { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserFollowAlbum> UsersFollowAlbums { get; set; }
+        public virtual DbSet<UserFollowArtist> UsersFollowArtists { get; set; }
+        public virtual DbSet<UserFollowPlaylist> UsersFollowPlaylists { get; set; }
+        public virtual DbSet<AdministratorRefreshToken> AdminRefreshTokens { get; set; }
+        public virtual DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+
+        #endregion Generate Dbset
     }
 }

@@ -1,8 +1,9 @@
 using tunenest.Domain.Commons;
+using tunenest.Domain.Commons.Interfaces;
 
 namespace tunenest.Domain.Entities.Users
 {
-    public class User : Entity<Guid>
+    public class User : Entity<Guid>, IAuditableEntity
     {
         public User()
         {
@@ -24,6 +25,8 @@ namespace tunenest.Domain.Entities.Users
         public int? access_failed_count { get; set; }
         public Guid role_id { get; set; }
         public bool lock_acc { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime? modified_at { get; set; }
 
         public virtual Role role_Roles { get; set; }
         public virtual ICollection<UserFollowSong> user_UserFollowSongs { get; set; }

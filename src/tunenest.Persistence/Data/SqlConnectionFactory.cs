@@ -36,7 +36,7 @@ namespace tunenest.Persistence.Data
         {
             if (_connection == null || _connection.State != ConnectionState.Open)
             {
-                _connection = new NpgsqlConnection(_configuration.GetConnectionString("PgConnection"));
+                _connection = new NpgsqlConnection(_configuration.GetConnectionString("Tunnest_DbConnection"));
                 _connection.Open();
             }
 

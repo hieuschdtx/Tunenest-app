@@ -1,11 +1,12 @@
 using tunenest.Domain.Commons;
+using tunenest.Domain.Commons.Interfaces;
 using tunenest.Domain.Entities.Albums;
 using tunenest.Domain.Entities.Playlists;
 using tunenest.Domain.Entities.Users;
 
 namespace tunenest.Domain.Entities.Artists
 {
-    public class Artist : Entity<long>
+    public class Artist : Entity<long>, IAuditableEntity
     {
         public Artist()
         {
@@ -24,6 +25,9 @@ namespace tunenest.Domain.Entities.Artists
         public DateOnly? dob { get; set; }
         public string country { get; set; }
         public bool disable { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime? modified_at { get; set; }
+
         public virtual ICollection<AlbumArtist> artist_AlbumsArtists { get; set; }
         public virtual ICollection<ArtistSong> artist_ArtistsSongs { get; set; }
         public virtual ICollection<PlaylistArtist> artist_PlaylistsArtists { get; set; }

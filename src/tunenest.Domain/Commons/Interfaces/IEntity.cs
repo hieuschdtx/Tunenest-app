@@ -1,6 +1,6 @@
 namespace tunenest.Domain.Commons.Interfaces
 {
-    public interface IEntity : IAuditableEntity
+    public interface IEntity
     {
         void ClearDomainEvents();
 

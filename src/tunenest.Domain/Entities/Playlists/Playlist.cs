@@ -1,9 +1,10 @@
 using tunenest.Domain.Commons;
+using tunenest.Domain.Commons.Interfaces;
 using tunenest.Domain.Entities.Users;
 
 namespace tunenest.Domain.Entities.Playlists
 {
-    public class Playlist : Entity<long>
+    public class Playlist : Entity<long>, IAuditableEntity
     {
         public Playlist()
         {
@@ -20,6 +21,8 @@ namespace tunenest.Domain.Entities.Playlists
         public string description { get; set; }
         public bool disable { get; set; }
         public string tag { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime? modified_at { get; set; }
 
         public virtual ICollection<PlaylistArtist> playlist_PlaylistsArtists { get; set; }
         public virtual ICollection<PlaylistSong> playlist_PlaylistsSongs { get; set; }

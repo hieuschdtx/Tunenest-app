@@ -1,10 +1,11 @@
 using tunenest.Domain.Commons;
+using tunenest.Domain.Commons.Interfaces;
 using tunenest.Domain.Entities.Administrators;
 using tunenest.Domain.Entities.Users;
 
 namespace tunenest.Domain.Entities
 {
-    public class Role : Entity<Guid>
+    public class Role : Entity<Guid>, IAuditableEntity
     {
         public Role()
         {
@@ -24,8 +25,15 @@ namespace tunenest.Domain.Entities
         public string name { get; private set; }
         public string description { get; private set; }
         public bool disable { get; private set; }
+        public DateTime created_at { get; set; }
+        public DateTime? modified_at { get; set; }
 
         public virtual ICollection<Administrator> role_Administrators { get; set; }
         public virtual ICollection<User> role_Users { get; set; }
+
+        public void CreateModifiedAt()
+        {
+            modified_at = DateTime.Now;
+        }
     }
 }

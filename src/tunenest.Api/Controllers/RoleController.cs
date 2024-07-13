@@ -36,7 +36,7 @@ namespace tunenest.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> GetRoleByIdAsync([FromQuery] string id)
         {
-            if (!GuidExtension.IsGuid(id))
+            if (!id.IsGuid())
             {
                 throw new BusinessRuleException("id", "Id không phải là UUID hợp lệ.");
             }
@@ -59,7 +59,7 @@ namespace tunenest.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> UpdateRoleAsync([FromQuery] string id, [FromBody] UpdateRoleCommand command)
         {
-            if (!GuidExtension.IsGuid(id))
+            if (!id.IsGuid())
             {
                 throw new BusinessRuleException("id", "Id không phải là UUID hợp lệ.");
             }
@@ -74,7 +74,7 @@ namespace tunenest.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> DeleteRoleAsync([FromQuery] string id)
         {
-            if (!GuidExtension.IsGuid(id))
+            if (!id.IsGuid())
             {
                 throw new BusinessRuleException("id", "Id không phải là UUID hợp lệ.");
             }

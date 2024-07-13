@@ -8,9 +8,16 @@ namespace tunenest.Domain.Entities.Administrators
         {
         }
 
-        public string refresh_token { get; set; }
-        public DateTime expires_at { get; set; }
-        public Guid admin_id { get; set; }
+        public AdministratorRefreshToken(string refresh_token, Guid admin_id)
+        {
+            this.refresh_token = refresh_token;
+            this.expires_at = DateTime.Now.AddDays(30);
+            this.admin_id = admin_id;
+        }
+
+        public string refresh_token { get; private set; }
+        public DateTime expires_at { get; private set; }
+        public Guid admin_id { get; private set; }
 
         public virtual Administrator admin_Administrators { get; set; }
     }

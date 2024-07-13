@@ -1,13 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using tunenest.Domain.Commons.Interfaces;
 using tunenest.Domain.Entities.Administrators;
 using tunenest.Domain.Interfaces;
-using tunenest.Persistence.Data;
 
 namespace tunenest.Persistence.Repository
 {
-    public class AdminRepository : GenericRepository<Administrator, Guid>, IAdminRepository
+    public class AdminRepository : IAdminRepository
     {
-        public AdminRepository(TunenestDbContext context) : base(context)
+        private readonly IGenericRepository<Administrator, Guid> _repository;
+
+        public AdminRepository(IGenericRepository<Administrator, Guid> repository)
         {
+            _repository = repository;
+        }
+
+        public async Task<Administrator> GetByEmailAsync(string email)
+        {
+            return await _repository.Entities.FirstOrDefaultAsync(x => x.email == email);
         }
     }
 }

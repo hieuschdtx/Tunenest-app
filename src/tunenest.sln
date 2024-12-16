@@ -5,15 +5,20 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D229FCFA-4FEF-454D-8242-3E0A1624888C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tunenest.Domain", "tunenest.Domain\tunenest.Domain.csproj", "{BA0F8597-F2E9-4128-86A7-530151C199FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tunenest.Domain", "tunenest.Domain\tunenest.Domain.csproj", "{BA0F8597-F2E9-4128-86A7-530151C199FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tunenest.Application", "tunenest.Application\tunenest.Application.csproj", "{DAC10C0A-F645-46F6-B044-0DC1AA0E3A58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tunenest.Application", "tunenest.Application\tunenest.Application.csproj", "{DAC10C0A-F645-46F6-B044-0DC1AA0E3A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tunenest.Infrastructure", "tunenest.Infrastructure\tunenest.Infrastructure.csproj", "{59A0DDA2-07D7-4DB9-AB9D-E6B374A863D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tunenest.Infrastructure", "tunenest.Infrastructure\tunenest.Infrastructure.csproj", "{59A0DDA2-07D7-4DB9-AB9D-E6B374A863D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tunenest.Persistence", "tunenest.Persistence\tunenest.Persistence.csproj", "{B7571295-4276-4F3B-B17B-03E21EB2841F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tunenest.Persistence", "tunenest.Persistence\tunenest.Persistence.csproj", "{B7571295-4276-4F3B-B17B-03E21EB2841F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tunenest.Api", "tunenest.Api\tunenest.Api.csproj", "{C8010F5A-F3FA-486C-863B-6B6AFA149021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tunenest.Api", "tunenest.Api\tunenest.Api.csproj", "{C8010F5A-F3FA-486C-863B-6B6AFA149021}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23883AC3-4413-4B9B-8AA7-72C0029BA1F9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -20,4 +20,12 @@
     <ProjectReference Include="..\tunenest.Persistence\tunenest.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Administrators\Commands\Delete\" />
+    <Folder Include="Features\Administrators\Commands\Update\" />
+    <Folder Include="Features\Administrators\Queries\GetAll\" />
+    <Folder Include="Features\Administrators\Queries\GetById\" />
+    <Folder Include="Features\Administrators\Queries\GetByEmail\" />
+  </ItemGroup>
+
 </Project>
